@@ -382,12 +382,12 @@ class FXEasyTokenizer:
 
         # get token ids, cf. https://huggingface.co/transformers/glossary.html
         text_left_ids_with_special_tokens = tokenizer.encode(
-            text_left, add_special_tokens=True
+            text_left, add_special_tokens=True, truncation=True
         )
-        text_right_ids = tokenizer.encode(text_right, add_special_tokens=False)
+        text_right_ids = tokenizer.encode(text_right, add_special_tokens=False, truncation=True)
         text_ids_with_special_tokens = tokenizer.encode(text, add_special_tokens=True)
         target_phrase_ids_with_special_tokens = tokenizer.encode(
-            target, add_special_tokens=True
+            target, add_special_tokens=True, truncation=True
         )
 
         len_text_left_ids_with_special_tokens = len(text_left_ids_with_special_tokens)
@@ -770,7 +770,7 @@ class FXEasyTokenizer:
             # create also text ids without max length to see if the one that will be
             # used was truncated
             text_ids_with_special_tokens_no_max_length = tok_obj.encode(
-                text, add_special_tokens=True
+                text, add_special_tokens=True, truncation=True
             )
             text_num_truncated_tokens = len(
                 text_ids_with_special_tokens_no_max_length
