@@ -385,7 +385,7 @@ class FXEasyTokenizer:
             text_left, add_special_tokens=True, truncation=True
         )
         text_right_ids = tokenizer.encode(text_right, add_special_tokens=False, truncation=True)
-        text_ids_with_special_tokens = tokenizer.encode(text, add_special_tokens=True)
+        text_ids_with_special_tokens = tokenizer.encode(text, add_special_tokens=True, truncation=True)
         target_phrase_ids_with_special_tokens = tokenizer.encode(
             target, add_special_tokens=True, truncation=True
         )
